@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ8605M8DZ"></script>
@@ -16,166 +16,221 @@
     <link rel="icon" type="image/png" sizes="16x16" href="subhadeep.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        lucide.createIcons();
-    });
-</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            lucide.createIcons();
+        });
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: 'var(--primary)',
+                            foreground: 'var(--primary-foreground)',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
     <style>
-        .circuit-container {
-            background-color: #000;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-            position: relative;
+        :root {
+            --primary: #000000;
+            --primary-foreground: #ffffff;
         }
-        .circuit-line {
-            position: absolute;
-            background-color: #fff;
-            opacity: 0;
-            transition: opacity 0.5s;
+        .dark {
+            --primary:  #ffffff;
+            --primary-foreground: #000000;
         }
-        @keyframes pulse {
-            0%, 100% { opacity: 0.1; }
-            50% { opacity: 0.5; }
+        .typewriter-cursor {
+            border-right: 0.1em solid;
+            animation: blink 0.7s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: currentColor; }
         }
     </style>
 </head>
-<body class="bg-black text-white font-mono min-h-screen">
-    <div class="circuit-container fixed inset-0"></div>
-    
+<body class="bg-primary text-primary-foreground font-mono min-h-screen transition-colors duration-300">
     <div class="relative z-10">
-        <nav class="fixed top-5 left-1/2 w-11/12 max-w-5xl transform -translate-x-1/2 bg-black border-2 border-white rounded-xl shadow-lg z-50">
+        <nav class="fixed top-5 left-1/2 w-11/12 max-w-5xl transform -translate-x-1/2 bg-primary border-2 border-primary-foreground rounded-xl shadow-lg z-50">
             <div class="container mx-auto px-4">
                 <div class="flex items-center justify-between py-4">
-                  
                     <div class="flex items-center">
-                        <a href="#" class="text-2xl font-mono font-bold text-white">Subhadeep Paul</a>
+                        <a href="#" class="text-2xl font-mono font-bold text-primary-foreground">Subhadeep Paul</a>
                     </div>
 
-                    <!-- Mobile menu button -->
-                    <div class="lg:hidden">
-                        <button id="nav-toggle" class="text-white focus:outline-none">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                            </svg>
+                    <!-- Theme toggle and Mobile menu button -->
+                    <div class="flex items-center space-x-4">
+                        <button id="theme-toggle" class="text-primary-foreground focus:outline-none">
+                            <i data-lucide="sun" class="w-6 h-6 hidden dark:block"></i>
+                            <i data-lucide="eclipse" class="w-6 h-6 block dark:hidden"></i>
                         </button>
+                        <div class="lg:hidden">
+                            <button id="nav-toggle" class="text-primary-foreground focus:outline-none">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
 
                     <!-- Nav Links -->
                     <div class="hidden lg:flex space-x-8">
-                        <a href="index.html" class="text-white font-mono border-2 border-white px-3 py-2 rounded-md hover:shadow-lg hover:shadow-white/50 transition duration-300">Home</a>
-                        <a href="blog.html" class="text-white font-mono border-2 border-white px-3 py-2 rounded-md hover:shadow-lg hover:shadow-white/50 transition duration-300">Blogs</a>
-                        <a href="projects.html.html" class="text-white font-mono border-2 border-white px-3 py-2 rounded-md hover:shadow-lg hover:shadow-white/50 transition duration-300">Projects</a>
-                        <a href="resume.html" class="text-white font-mono border-2 border-white px-3 py-2 rounded-md hover:shadow-lg hover:shadow-white/50 transition duration-300">Resume</a>
+                        <a href="index.html" class="text-primary-foreground font-mono border-2 border-primary-foreground px-3 py-2 rounded-md hover:shadow-lg hover:shadow-primary-foreground/50 transition duration-300">Home</a>
+                        <a href="blog.html" class="text-primary-foreground font-mono border-2 border-primary-foreground px-3 py-2 rounded-md hover:shadow-lg hover:shadow-primary-foreground/50 transition duration-300">Blogs</a>
+                        <a href="projects.html" class="text-primary-foreground font-mono border-2 border-primary-foreground px-3 py-2 rounded-md hover:shadow-lg hover:shadow-primary-foreground/50 transition duration-300">Projects</a>
+                        <a href="resume.html" class="text-primary-foreground font-mono border-2 border-primary-foreground px-3 py-2 rounded-md hover:shadow-lg hover:shadow-primary-foreground/50 transition duration-300">Resume</a>
                     </div>
                 </div>
 
                 <!-- Mobile Menu -->
                 <div id="mobile-menu" class="lg:hidden hidden py-4 rounded-b-lg">
-                    <a href="index.html" class="block py-2 text-white border-2 border-white px-3 rounded-md hover:shadow-lg hover:shadow-white/50 transition duration-300">Home</a>
-                    <a href="blog.html" class="block py-2 text-white border-2 border-white px-3 rounded-md hover:shadow-lg hover:shadow-white/50 transition duration-300">Blogs</a>
-                    <a href="projects.html" class="block py-2 text-white border-2 border-white px-3 rounded-md hover:shadow-lg hover:shadow-white/50 transition duration-300">Projects</a>
-                    <a href="resume.html" class="block py-2 text-white border-2 border-white px-3 rounded-md hover:shadow-lg hover:shadow-white/50 transition duration-300">Resume</a>
+                    <a href="index.html" class="block py-2 text-primary-foreground border-2 border-primary-foreground px-3 rounded-md hover:shadow-lg hover:shadow-primary-foreground/50 transition duration-300">Home</a>
+                    <a href="blog.html" class="block py-2 text-primary-foreground border-2 border-primary-foreground px-3 rounded-md hover:shadow-lg hover:shadow-primary-foreground/50 transition duration-300">Blogs</a>
+                    <a href="projects.html" class="block py-2 text-primary-foreground border-2 border-primary-foreground px-3 rounded-md hover:shadow-lg hover:shadow-primary-foreground/50 transition duration-300">Projects</a>
+                    <a href="resume.html" class="block py-2 text-primary-foreground border-2 border-primary-foreground px-3 rounded-md hover:shadow-lg hover:shadow-primary-foreground/50 transition duration-300">Resume</a>
                 </div>
             </div>
-                        </nav>
-
-
-
-
-
+        </nav>
 
         <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-24">
-
-
-
-            <h1 class="text-3xl font-bold">Hello, I am @Subhadeep Paul
-          <br><br>
-
-            <h1 class="text-2xl font-bold inline">Things I love doing -- Love Learning New Things, Love Talking </h1><button class="inline-flex rounded-full bg-white text-black p-3 shadow-lg shadow-white/50 active:shadow-xl active:shadow-white/50 transition duration-300">
- <p>#Love Helping Others</p>
-            </button><h1 class="text-2xl font-bold inline"> Love Programming, Love Doing Business, Love working to my level best and much more</h1>
-
-
-<br><br><br>
-
-        <article class="mb-12">
-                <h2 class="text-4xl font-bold mb-4">About Me</h2>
-                <p class="mb-4">Hi, I'm Subhadeep Paul from Assam, India. As a student pursuing my high school diploma, I’m passionate about learning and sharing knowledge because I believe it’s the key to growth. My goal is to dedicate my time and energy to making a positive impact, helping our modern, ever-evolving world move forward.
-<br><br>
-I love diving into the craziest and most creative ideas that pop into my head, and I’m dead set on making them a reality someday. I’m also all about chasing fresh ideas and meeting amazing people along the way. My big dream? To guide myself—and maybe the whole world—towards a brighter, happier future.</p>
-        </article>
-
-
-
-
+            <h1 class="text-2xl ">Hello! I am <br><span class="text-3xl font-bold">@Subhadeep Paul 🌲</span></h1>
+            <h1 id="typewriter" class="text-1xl"><span id="typewriter-text"></span><span class="typewriter-cursor"></span></h1>
+            
+            <div class="mt-4 flex justify-left space-x-4">
+                    <div class="border-2 border-primary-foreground p-2 rounded-lg">   
+                        <a href="https://github.com/Subhadeep-Paul5" class="text-primary-foreground hover:text-primary transition-colors duration-300">
+                            <i data-lucide="github" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                    <div class="border-2 border-primary-foreground p-2 rounded-lg">
+                        <a href="https://www.linkedin.com/in/subhadeep-paul5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-primary-foreground hover:text-primary transition-colors duration-300">
+                            <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                    <div class="border-2 border-primary-foreground p-2 rounded-lg">
+                        <a href="https://x.com/Subhadeep_Paul5?t=dZD27rVag-UfFuHXE4Pptg&s=09" class="text-primary-foreground hover:text-primary transition-colors duration-300">
+                            <i data-lucide="twitter" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                    <div class="border-2 border-primary-foreground p-2 rounded-lg">
+                        <a href="https://www.instagram.com/subhadeep.paul5/profilecard/?igsh=a21wbDh2ZWw5cTZh" class="text-primary-foreground hover:text-primary transition-colors duration-300">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+            <br><br>
+            <article class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">ABOUT ME</h2>
+                <p class="mb-4">Hi, I'm <span class="font-bold">Subhadeep Paul</span> from Assam, India. As a student pursuing my high school diploma, I'm passionate about learning and sharing knowledge because I believe it's the key to growth. My goal is to dedicate my time and energy to making a positive impact, helping our modern, ever-evolving world move forward.
+                <br><br>
+                I love diving into the craziest and most creative ideas that pop into my head, and I'm dead set on making them a reality someday. I'm also all about chasing fresh ideas and meeting amazing people along the way. My big dream? To guide myself—and maybe the whole world—towards a brighter, happier future.</p>
+            </article>
         </main>
 
-
-            <footer class="bg-black border-t-2 border-white p-4 text-center">
-        <div class="bg-black border-2 border-white rounded-xl p-6 hover:shadow-lg hover:shadow-white/50 transition duration-300">
-                    <h2 class="text-2xl font-bold mb-4">Follow Me on my Socials</h2>
-<div class="mt-4 flex justify-center space-x-4">
-
- <div class="border-2 border-white p-2 rounded-lg">   
-            <a href="https://github.com/Subhadeep-Paul5" class="text-white hover:text-primary transition-colors duration-300">
-                <i data-lucide="github" class="w-8 h-8"></i>
-            </a>
- </div>
-
-    <div class="border-2 border-white p-2 rounded-lg">
-            <a href="https://www.linkedin.com/in/subhadeep-paul5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-white hover:text-primary transition-colors duration-300">
-                <i data-lucide="linkedin" class="w-8 h-8"></i>
-            </a>
-    </div>
-    <div class="border-2 border-white p-2 rounded-lg">
-            <a href="https://x.com/Subhadeep_Paul5?t=dZD27rVag-UfFuHXE4Pptg&s=09" class="text-white hover:text-primary transition-colors duration-300">
-                <i data-lucide="twitter" class="w-8 h-8"></i>
-            </a>
-</div>
-    <div class="border-2 border-white p-2 rounded-lg">
-            <a href="https://www.instagram.com/subhadeep.paul5/profilecard/?igsh=a21wbDh2ZWw5cTZh" class="text-white hover:text-primary transition-colors duration-300">
-        <i data-lucide="instagram" class="w-8 h-8"></i>
-            </a>
-        </div>
-</div>
-            <br><br>
-        <p>&copy; 2024 Subhadeep Paul. All rights reserved.</p>
+        <footer class="bg-primary border-t-2 border-primary-foreground p-4 text-center">
+            <div class="bg-primary border-2 border-primary-foreground rounded-xl p-6 hover:shadow-lg hover:shadow-primary-foreground/50 transition duration-300">
+                <h2 class="text-2xl font-bold mb-4">Follow Me on my Socials</h2>
+                <div class="mt-4 flex justify-center space-x-4">
+                    <div class="border-2 border-primary-foreground p-2 rounded-lg">   
+                        <a href="https://github.com/Subhadeep-Paul5" class="text-primary-foreground hover:text-primary transition-colors duration-300">
+                            <i data-lucide="github" class="w-8 h-8"></i>
+                        </a>
+                    </div>
+                    <div class="border-2 border-primary-foreground p-2 rounded-lg">
+                        <a href="https://www.linkedin.com/in/subhadeep-paul5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-primary-foreground hover:text-primary transition-colors duration-300">
+                            <i data-lucide="linkedin" class="w-8 h-8"></i>
+                        </a>
+                    </div>
+                    <div class="border-2 border-primary-foreground p-2 rounded-lg">
+                        <a href="https://x.com/Subhadeep_Paul5?t=dZD27rVag-UfFuHXE4Pptg&s=09" class="text-primary-foreground hover:text-primary transition-colors duration-300">
+                            <i data-lucide="twitter" class="w-8 h-8"></i>
+                        </a>
+                    </div>
+                    <div class="border-2 border-primary-foreground p-2 rounded-lg">
+                        <a href="https://www.instagram.com/subhadeep.paul5/profilecard/?igsh=a21wbDh2ZWw5cTZh" class="text-primary-foreground hover:text-primary transition-colors duration-300">
+                            <i data-lucide="instagram" class="w-8 h-8"></i>
+                        </a>
+                    </div>
+                </div>
+                <br><br>
+                <p>&copy; 2024 Subhadeep Paul. All rights reserved.</p>
+            </div>
         </footer>
     </div>
 
     <script>
-        const container = document.querySelector('.circuit-container');
-        const lineCount = 20;
-
-        for (let i = 0; i < lineCount; i++) {
-            const line = document.createElement('div');
-            line.classList.add('circuit-line');
-            
-            const isHorizontal = Math.random() > 0.5;
-            const length = Math.random() * 100 + 50;
-            const thickness = Math.random() * 2 + 1;
-            
-            line.style.width = isHorizontal ? `${length}px` : `${thickness}px`;
-            line.style.height = isHorizontal ? `${thickness}px` : `${length}px`;
-            line.style.left = `${Math.random() * 100}%`;
-            line.style.top = `${Math.random() * 100}%`;
-            line.style.animation = `pulse ${Math.random() * 3 + 2}s infinite`;
-            
-            container.appendChild(line);
-        }
-
-        setInterval(() => {
-            const lines = document.querySelectorAll('.circuit-line');
-            lines[Math.floor(Math.random() * lines.length)].style.opacity = 1;
-        }, 200);
-
         // Mobile menu toggle
         document.getElementById('nav-toggle').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        themeToggle.addEventListener('click', function() {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Check for saved theme preference or prefer-color-scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        // Looping Typewriter effect
+        const typewriterElement = document.getElementById('typewriter-text');
+        const sentences = [
+            "I Love Learning New Things",
+            "I Love Talking",
+            "I Love Helping Others",
+            "I love programming",
+            "I Love Doing Business", 
+            "I Love working to my level best"
+        ];
+        let sentenceIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function typeWriter() {
+            const currentSentence = sentences[sentenceIndex];
+
+            if (isDeleting) {
+                typewriterElement.textContent = currentSentence.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50; // Faster when deleting
+            } else {
+                typewriterElement.textContent = currentSentence.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100; // Normal speed when typing
+            }
+
+            if (!isDeleting && charIndex === currentSentence.length) {
+                isDeleting = true;
+                typingSpeed = 1000; // Pause at the end of sentence
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                sentenceIndex = (sentenceIndex + 1) % sentences.length;
+                typingSpeed = 500; // Pause before starting new sentence
+            }
+
+            setTimeout(typeWriter, typingSpeed);
+        }
+
+        // Start the typewriter effect when the page loads
+        window.onload = typeWriter;
     </script>
 </body>
-</html>
+    </html>
