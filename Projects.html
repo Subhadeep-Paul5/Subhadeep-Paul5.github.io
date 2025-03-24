@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Subhadeep Paul</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="Subhadeep.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            lucide.createIcons();
+        });
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'x': '#6698FF',
+                    },
+                }
+            }
+        };
+    </script>
+</head>
+<body class="max-w-4xl mx-auto px-4 font-sans dark:bg-black bg-white dark:text-white text-black">
+   
+    
+  
+   <div class="container mx-auto mt-20 mb-10 px-4">
+    <main class="px-4 space-y-8">
+        <h1 class="text-3xl md:text-4xl text-x font-serif text-center font-bold mb-8">PROJECTS</h1>
+
+        
+        <div class="relative mx-auto mb-16">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+            </div>
+            <input type="search" id="searchInput" class="block w-full p-4 pl-10 text-lg border-4 border-dashed border-white bg-black focus:outline-none focus:ring-1 focus:ring-gray-400 text-white" placeholder="Search...">
+        </div>
+
+        
+        <section class="py-4">
+            <h2 class="text-3xl font-serif text-gray-400 border-b-4 border-dashed border-white mb-8">Latest Projects</h2>
+            <ul class="space-y-4 search-list">
+                <li><a href="https://subhadeep-paul5.github.io/BM_Convertor" class="text-xl hover:underline">Binary & Morse Converter</a></li>
+                <li><a href="https://subhadeep-paul5.github.io/QRCode_Generator" class="text-xl hover:underline">QR Code Generator</a></li>
+            </ul>
+        </section>
+
+    </main>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchInput");
+    const sections = document.querySelectorAll(".search-list li");
+
+    searchInput.addEventListener("input", function () {
+        const searchText = this.value.toLowerCase().trim();
+
+        sections.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            item.style.display = text.includes(searchText) ? "block" : "none";
+        });
+    });
+});
+</script>
+        
+<footer class="border-t-4 border-dashed dark:border-white border-black dark:border-white mt-16">
+    <div class="max-w-4xl mx-auto px-2 mt-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+        
+        <div>
+            <h3 class="text-2xl font-serif font-bold mb-3">Subhadeep Paul</h3>
+            <p class="text-sm font-serif font-bold text-gray-400">A boring person with a boring life</p>
+        </div>
+
+
+        <div>
+            <h3 class="text-xl font-serif font-bold mb-3">Quick Links</h3>
+            <ul class="space-y-2">
+                <li><a href="Projects.html" class="text-gray-400 text-sm font-serif font-bold transition">Projects</a></li>
+            </ul>
+        </div>
+
+        
+        <div>
+            <h3 class="text-xl font-serif font-bold mb-4">Follow Me</h3>
+            <div class="flex space-x-6 mt-2">
+                <a href="https://x.com/Subhadeep_Paul5?t=dZD27rVag-UfFuHXE4Pptg&s=09" target="_blank" aria-label="Follow me on Twitter">
+            <i data-lucide="twitter" class="w-8 h-8 text-gray-400 hover:scale-110 transition-transform duration-300"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/subhadeep-paul5" target="_blank" aria-label="Connect with me on LinkedIn">
+            <i data-lucide="linkedin" class="w-8 h-8 text-gray-400 hover:scale-110 transition-transform duration-300"></i>
+        </a>
+        <a href="https://www.instagram.com/subhadeep.paul5" target="_blank" aria-label="Follow me on Instagram">
+            <i data-lucide="instagram" class="w-8 h-8 text-gray-400 hover:scale-110 transition-transform duration-300"></i>
+        </a>
+            </div>
+        </div>
+    </div>
+
+    
+        <div class="border-t border-gray-700 mt-8 text-center">
+    <div class="text-sm text-gray-500 mt-3 mb-1">
+        &copy; 2025 Subhadeep Paul. All rights reserved.
+    </div>
+        </div>
+    </footer>
+</body>
+              </html>
